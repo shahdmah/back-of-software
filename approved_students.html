@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Approved Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="approved-container">
+        <h1>Congratulations!</h1>
+        {% if appointments %}
+            <p>The following appointments have been approved:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Student Name</th>
+                        <th>Doctor Name</th>
+                        <th>Date</th>
+                        <th>Time</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for appointment in appointments %}
+                    <tr>
+                        <td>{{ appointment[0] }}</td> <!-- اسم الطالب -->
+                        <td>{{ appointment[1] }}</td> <!-- اسم الدكتور -->
+                        <td>{{ appointment[2] }}</td> <!-- التاريخ -->
+                        <td>{{ appointment[3] }}</td> <!-- الوقت -->
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No approved appointments at the moment.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
+<script src="{{ url_for('static', filename='js/approved_students.js') }}"></script>

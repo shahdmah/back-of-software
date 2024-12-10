@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Appointment</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/appointments.css') }}">
+</head>
+<body>
+    <div class="appointments-container">
+        <h1>Available Doctors</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Doctor Name</th>
+                    <th>Specialization</th>
+                    <th>Available Days</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for doctor in doctors %}
+                <tr>
+                    <td>{{ doctor.name }}</td>
+                    <td>{{ doctor.specialization }}</td>
+                    <td>{{ doctor.available_days }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <h2>Book an Appointment</h2>
+        <form id="appointment-form" method="POST">
+            <!-- حقل مخفي لإرسال student_id -->
+            <input type="hidden" name="student_id" value="{{ student_id }}">
+        
+            <label for="doctor">Select Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                {% for doctor in doctors %}
+                <option value="{{ doctor.name }}">{{ doctor.name }} - {{ doctor.specialization }}</option>
+                {% endfor %}
+            </select>
+        
+            <label for="day">Select Day:</label>
+            <input type="date" id="day" name="day" required>
+        
+            <label for="time">Select Time:</label>
+            <select id="time" name="time" required>
+                <option value="09:00">09:00 AM</option>
+                <option value="10:00">10:00 AM</option>
+                <option value="11:00">11:00 AM</option>
+                <option value="12:00">12:00 PM</option>
+                <option value="13:00">01:00 PM</option>
+                <option value="14:00">02:00 PM</option>
+            </select>
+        
+            <button type="submit">Confirm Appointment</button>
+        </form>
+        <a href="/logout" class="logout-button">Logout</a>       
+        
+    </div>
+    
+    <script src="{{ url_for('static', filename='js/appointments.js') }}"></script>
+</body>
+</html>

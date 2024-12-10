@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor's Appointments</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <h1>Doctor's Appointments</h1>
+    
+    {% if appointments %}
+    <table>
+        <thead>
+            <tr>
+                <th>Student Name</th>
+                <th>Appointment Date</th>
+                <th>Time</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment[1] }}</td>  <!-- اسم الطالب -->
+                <td>{{ appointment[3] }} - {{ appointment[4] }}</td>  <!-- التاريخ والوقت -->
+                <td>{{ appointment[5] }}</td>  <!-- الحالة -->
+                <td>
+                    <form method="POST">
+                        <input type="hidden" name="appointment_id" value="{{ appointment[0] }}">
+                        <button type="submit" name="action" value="approve" style="background-color: green;">Approve</button>
+                        <button type="submit" name="action" value="reject" style="background-color: red;">Reject</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p>No appointments available at the moment.</p>
+    {% endif %}
+    
+    <a href="{{ url_for('logout') }}">Logout</a>
+</body>
+</html>

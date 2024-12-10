@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/update-doctor.css') }}">
+
+
+</head>
+<body>
+    <div class="update-container">
+        <h1>Update Your Profile</h1>
+        <form method="POST">
+            <label for="name">Name</label>
+            <input type="text" id="name" name="name" value="{{ username }}" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" value="{{ email }}" required>
+
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" required>
+
+            <button type="submit">Save Changes</button>
+        </form>
+    </div>
+    <script src="{{ url_for('static', filename='js/update-doctor.js') }}"></script>
+</body>
+</html>

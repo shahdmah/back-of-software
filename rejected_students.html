@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rejected Students</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/rejected_students.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Rejected Students</h1>
+        <div class="message">
+            Appointment Rejected<br>
+            Unfortunately, your appointment has been rejected. Please choose another time slot.
+        </div>
+
+        <!-- Input for filtering students -->
+        <div class="filter-container">
+            <input type="text" id="studentFilter" placeholder="Filter by Student Name" onkeyup="filterStudents()">
+            <button onclick="resetFilter()">Reset</button>
+        </div>
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in rejected_students %}
+                <tr>
+                    <td>{{ student['username'] }}</td>
+                    <td>{{ student['day'] }}</td>
+                    <td>{{ student['time'] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        {% if rejected_students %}
+        <table>
+            <thead>
+                <tr>
+                    <th>Student Name</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for student in rejected_students %}
+                <tr>
+                    <td>{{ student[0] }}</td> <!-- اسم الطالب -->
+                    <td>{{ student[1] }}</td> <!-- اسم الدكتور -->
+                    <td>{{ student[2] }}</td> <!-- اليوم -->
+                    <td>{{ student[3] }}</td> <!-- الوقت -->
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% else %}
+        <p>No rejected appointments at the moment.</p>
+        {% endif %}
+    </div>
+
+    <!-- Include the JS file -->
+    <script src="{{ url_for('static', filename='js/rejected_students.js') }}"></script>
+</body>
+</html>

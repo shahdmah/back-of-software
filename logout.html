@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logout</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/logout.css') }}">
+</head>
+<body>
+    {% extends "base.html" %}
+
+    {% block title %}Logout{% endblock %}
+    
+    {% block content %}
+    <div class="logout-container">
+        <h1>You have been logged out successfully!</h1>
+        <a href="{{ url_for('login') }}">Go back to Login</a>
+    </div>
+    {% endblock %}
+
+    <div class="logout-container">
+        <h1>You have been logged out successfully!</h1>
+        <a href="/login" class="back-to-login">Go back to Login</a>
+    </div>
+
+
+</body>
+</html>

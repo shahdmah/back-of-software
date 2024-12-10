@@ -1,0 +1,95 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f8f9fa;
+    margin: 0;
+    padding: 0;
+    color: #333;
+}
+
+.container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #d9534f; /* لون أحمر لعنوان صفحة المرفوضين */
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+table th, table td {
+    padding: 10px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+table th {
+    background-color: #f2dede; /* خلفية وردية خفيفة */
+    color: #a94442; /* لون أحمر غامق */
+}
+
+table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+table tr:hover {
+    background-color: #f2dede; /* نفس لون العنوان عند التمرير */
+}
+
+p {
+    text-align: center;
+    color: #888;
+    font-size: 16px;
+}
+
+
+.filter-container {
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.filter-container input {
+    padding: 10px;
+    font-size: 16px;
+    width: 250px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.filter-container button {
+    padding: 10px 15px;
+    font-size: 16px;
+    color: white;
+    background-color: #007bff;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.filter-container button:hover {
+    background-color: #0056b3;
+}
+.message {
+    color: red; /* اللون الأحمر */
+    font-weight: bold; /* الخط عريض */
+    text-align: center; /* محاذاة الرسالة في المنتصف */
+    margin: 20px 0; /* مسافة حول الرسالة */
+    font-size: 18px; /* حجم الخط */
+    background-color: #ffe6e6; /* خلفية فاتحة لإبراز الرسالة */
+    padding: 10px; /* مساحة داخلية */
+    border: 1px solid red; /* إطار باللون الأحمر */
+    border-radius: 5px; /* حواف مستديرة */
+}
+

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Appointment</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/student.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</head>
+<body>
+    <div class="student-container">
+        <h1>Book Your Appointment</h1>
+        <form id="student-form" method="POST" action="/book_appointment">  <!-- إرسال البيانات إلى /book_appointment -->
+            <label for="doctor">Select Doctor:</label>
+            <select id="doctor" name="doctor" required>
+                <option value="Dr. Ahmed">Dr. Ahmed - Dermatologist</option>
+                <option value="Dr. Rhash">Dr. Rhash - Cardiologist</option>
+                <option value="Dr. Mohmmed">Dr. Mohmmed - Orthopedic</option>
+                <option value="Dr. Maha">Dr. Maha - Pediatrician</option>
+                <option value="Dr. Omar">Dr. Omar - Gynecologist</option>
+                <option value="Dr. Ali">Dr. Ali - Neurologist</option>
+            </select>
+
+            <label for="time">Select Available Time:</label>
+            <select id="time" name="time" required>
+                <option value="9:00 AM">9:00 AM</option>
+                <option value="10:00 AM">10:00 AM</option>
+                <option value="11:00 AM">11:00 AM</option>
+                <option value="12:00 PM">12:00 PM</option>
+                <option value="1:00 PM">1:00 PM</option>
+                <option value="2:00 PM">2:00 PM</option>
+            </select>
+            <script src="js/student.js"></script>
+        </body>
+        </html>
+
+       
